@@ -1,0 +1,38 @@
+.contactListItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.contactListItem:last-child {
+  margin-right: 0;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.contactText {
+  margin-right: 10px;
+}
+
+.deleteButton {
+  border: 1px solid #000;
+  margin-left: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
