@@ -21,7 +21,7 @@ export default function HomePage() {
 
       <div style={styles.container}>
         <h1 style={styles.title}>
-          Contact book welcome page{" "}
+          Contact book{" "}
           <span role="img" aria-label="Greeting icon">
             💁‍♀️
           </span>
