@@ -2,6 +2,7 @@ import css from "./Contact.module.css";
 import { FaUser, FaPhone } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
+// import Button from "@mui/material/Button";
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
