@@ -31,9 +31,11 @@
 }
 
 .buttonContainer {
+  display: flex;
+  flex-direction: column;
   margin-left: 20px;
   padding: 5px 10px;
-  cursor: pointer;
+  gap: 20px;
 }
 
 .slideOut {
@@ -41,29 +43,29 @@
   transform: translateX(-380%);
 }
 
-/* .btn {
+.deleteButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: auto;
   padding: 16px 32px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
   border-radius: 4px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-  height: 30px;
-  width: 50px;
+  box-shadow: 0px 4px 4px 0px rgba(91, 34, 34, 0.15);
+  cursor: pointer;
   border: none;
-  background-color: #3e77aa;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-} */
+}
 
-.btn:hover,
-.btn:focus {
+.editButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(35, 88, 74, 0.15);
+  cursor: pointer;
+  border: none;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
   background-color: #ff7879;
 }

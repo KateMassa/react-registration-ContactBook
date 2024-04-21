@@ -49,6 +49,23 @@ const deleteContact = createAsyncThunk(
   }
 );
 
+const editContact = createAsyncThunk(
+  "contacts/editContact",
+  async (contact, thunkAPI) => {
+    const { id, name, number } = contact;
+    try {
+      const response = await axios.put(`/contacts/${id}`, { name, number });
+      toast.success(`Contact "${name}" updated.`);
+      return response.data;
+    } catch (e) {
+      toast.error(
+        `Something went wrong... Try again. Error details: ${e.message}`
+      );
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 const searchContact = createAsyncThunk(
   "contacts/searchContacts",
   async (searchTerm, thunkAPI) => {
@@ -64,4 +81,4 @@ const searchContact = createAsyncThunk(
   }
 );
 
-export { fetchContacts, addContact, deleteContact, searchContact };
+export { fetchContacts, addContact, deleteContact, editContact, searchContact };

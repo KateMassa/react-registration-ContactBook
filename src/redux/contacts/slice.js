@@ -3,6 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  editContact,
   searchContact,
 } from "../contacts/operations";
 
@@ -11,6 +12,7 @@ const contactsInitialState = {
   loading: false,
   error: null,
 };
+
 const handlePending = (state) => {
   state.loading = true;
 };
@@ -49,6 +51,16 @@ const contactsSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteContact.rejected, handleRejected)
+      .addCase(editContact.pending, handlePending)
+      .addCase(editContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        const index = state.items.findIndex(
+          (contact) => contact.id === action.payload.id
+        );
+        state.items[index] = action.payload;
+      })
+      .addCase(editContact.rejected, handleRejected)
       .addCase(searchContact.pending, handlePending)
       .addCase(searchContact.fulfilled, (state, action) => {
         state.loading = false;
