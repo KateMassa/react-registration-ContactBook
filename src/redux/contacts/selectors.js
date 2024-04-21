@@ -7,12 +7,13 @@ export const selectNameFilter = (state) => state.filters.name;
 export const selectNumberFilter = (state) => state.filters.number;
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter, selectNumberFilter],
-  (contacts, nameFilter) => {
-    console.log("Displaying filtered contacts");
-
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(nameFilter.toLowerCase())
+  [selectContacts, selectNameFilter],
+  (contacts, filter) => {
+    return contacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+        contact.number.includes(filter) ||
+        contact.number.split("-").join("").includes(filter)
     );
   }
 );
