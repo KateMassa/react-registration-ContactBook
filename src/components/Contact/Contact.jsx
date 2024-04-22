@@ -36,9 +36,13 @@ const Contact = ({ name, number, id }) => {
   };
 
   return (
-    <li className={`${css.contactListItem} ${isDeleting ? css.slideOut : ""}`}>
+    <li
+      className={`${css.contactListItem} ${isDeleting ? css.slideOut : ""} ${
+        isEditing ? css.slideIn : ""
+      }`}
+    >
       <div className={css.infoContainer}>
-        <div className={css.nameText}>
+        <div className={css.contactText}>
           <FaUser color="#4d5ae5" /> {name}
         </div>
         <a href={`tel:+${number}`}>

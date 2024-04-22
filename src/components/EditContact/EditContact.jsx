@@ -1,13 +1,18 @@
+import { Field, Form, Formik, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { editContact } from "../../redux/contacts/operations";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import Button from "@mui/material/Button";
+import CancelIcon from "@mui/icons-material/Cancel";
+import SaveIcon from "@mui/icons-material/Save";
+import TextField from "@mui/material/TextField";
+import css from "./EditContact.module.css";
 
 const EditContact = ({ contact, onClose }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    dispatch(editContact(values));
+    dispatch(editContact({ ...values, id: contact.id }));
     onClose();
   };
 
@@ -18,30 +23,53 @@ const EditContact = ({ contact, onClose }) => {
 
   return (
     <div>
-      <h2>Edit Contact</h2>
       <Formik
         initialValues={{ ...contact }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <div>
+          <Form className={css.editContactContainer}>
+            <div className={css.editContactInput}>
               <label htmlFor="name">Name:</label>
-              <Field type="text" id="name" name="name" />
+              <Field
+                className={css.nameInput}
+                id="name"
+                name="name"
+                as={TextField}
+                variant="outlined"
+              />
               <ErrorMessage name="name" component="div" />
             </div>
-            <div>
+            <div className={css.editContactInput}>
               <label htmlFor="phone">Phone:</label>
-              <Field type="text" id="phone" name="phone" />
+              <Field
+                id="phone"
+                name="phone"
+                as={TextField}
+                variant="outlined"
+              />
               <ErrorMessage name="phone" component="div" />
             </div>
-            <button type="submit" disabled={isSubmitting}>
-              Save
-            </button>
-            <button type="button" onClick={onClose}>
-              Cancel
-            </button>
+            <div className={css.buttonContainer}>
+              <Button
+                className={css.saveButton}
+                type="submit"
+                variant="outlined"
+                startIcon={<SaveIcon />}
+                disabled={isSubmitting}
+              >
+                Save
+              </Button>
+              <Button
+                className={css.closeButton}
+                variant="outlined"
+                startIcon={<CancelIcon />}
+                onClick={onClose}
+              >
+                Cancel
+              </Button>
+            </div>
           </Form>
         )}
       </Formik>

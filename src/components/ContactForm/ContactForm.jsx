@@ -1,7 +1,10 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
 import css from "./ContactForm.module.css";
 
 const ContactForm = () => {
@@ -39,17 +42,31 @@ const ContactForm = () => {
         <div className={css.formContainer}>
           <div className={css.addContactContainer}>
             <label htmlFor="name">Name</label>
-            <Field type="text" name="name" />
+            <TextField
+              className={css.addContactInput}
+              variant="outlined"
+              name="name"
+            />
             <ErrorMessage name="name" component="div" />
           </div>
           <div className={css.addContactContainer}>
             <label htmlFor="number">Number</label>
-            <Field type="text" name="number" />
+            <TextField
+              className={css.addContactInput}
+              variant="outlined"
+              type="text"
+              name="number"
+            />
             <ErrorMessage name="number" component="div" />
           </div>
-          <button className={css.formButton} type="submit">
+          <Button
+            className={css.formButton}
+            variant="outlined"
+            type="submit"
+            startIcon={<AddIcon />}
+          >
             Add Contact
-          </button>
+          </Button>
         </div>
       </Form>
     </Formik>
