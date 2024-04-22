@@ -1,9 +1,10 @@
 .formContainer {
-  width: 300px;
-  border: 1px solid #000;
+  width: 400px;
+  border: 1px solid #6e6969;
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 .addContactContainer {
@@ -15,10 +16,13 @@
 
 label {
   padding-bottom: 8px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
-input {
-  border: 1px solid #000;
+.addContactInput {
+  font-size: 20px;
 }
 
 .formButton {

@@ -1,0 +1,36 @@
+.editContactContainer {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.editContactInput {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.saveButton,
+.closeButton {
+  margin: 0;
+  width: 150px;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  background-color: #d67373;
+}

@@ -1,11 +1,7 @@
 .searchContainer {
   margin: 20px 0;
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   text-align: left;
-}
-
-.searchInput {
-  border: 1px solid #000;
 }

@@ -51,15 +51,14 @@ const deleteContact = createAsyncThunk(
 
 const editContact = createAsyncThunk(
   "contacts/editContact",
-  async (contact, thunkAPI) => {
-    const { id, name, number } = contact;
+  async ({ id, values }, thunkAPI) => {
     try {
-      const response = await axios.put(`/contacts/${id}`, { name, number });
-      toast.success(`Contact "${name}" updated.`);
-      return response.data;
+      const res = await axios.patch(`/contacts/${id}`, values);
+      toast.success(`Contact "${values.name}" updated.`);
+      return res.data;
     } catch (e) {
       toast.error(
-        `Something went wrong... Try again. Error details: ${e.message}`
+        `Something went wrong... Try again later. Error details: ${e.message}`
       );
       return thunkAPI.rejectWithValue(e.message);
     }
