@@ -1,0 +1,22 @@
+.container {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 64px;
+  text-align: center;
+  color: rgb(23, 23, 129);
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 48px;
+  text-align: center;
+  color: rgb(29, 26, 44);
+}

@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import * as Yup from "yup";
 import css from "./LoginForm.module.css";
 
@@ -41,7 +43,12 @@ const LoginForm = () => {
         <Form className={css.form} autoComplete="off">
           <div className={css.label}>
             <label htmlFor="email">Email</label>
-            <Field type="email" name="email" autoComplete="email" />
+            <Field
+              type="email"
+              name="email"
+              autoComplete="email"
+              as={TextField}
+            />
             <ErrorMessage name="email" component="div" className={css.error} />
           </div>
           <div className={css.label}>
@@ -50,6 +57,7 @@ const LoginForm = () => {
               type="password"
               name="password"
               autoComplete="current-password"
+              as={TextField}
             />
             <ErrorMessage
               name="password"
@@ -57,9 +65,9 @@ const LoginForm = () => {
               className={css.error}
             />
           </div>
-          <button type="submit" disabled={isSubmitting}>
+          <Button type="submit" variant="outlined" disabled={isSubmitting}>
             {isSubmitting ? "Logging In..." : "Log In"}
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>
