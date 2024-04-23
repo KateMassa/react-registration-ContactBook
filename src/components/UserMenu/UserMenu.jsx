@@ -13,7 +13,7 @@ export const UserMenu = () => {
       Welcome, {name}
       <Button
         className={css.logoutButton}
-        variant="outlined"
+        variant="contained"
         type="button"
         onClick={() => {
           dispatch(logOut());
