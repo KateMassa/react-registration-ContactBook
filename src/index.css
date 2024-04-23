@@ -57,3 +57,10 @@ link {
   color: rgb(23, 23, 129);
   text-decoration: none;
 }
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgb(23, 23, 129);
+}
