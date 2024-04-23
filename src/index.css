@@ -42,9 +42,11 @@ a:hover {
 }
 
 body {
+  min-width: 320px;
   margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: aliceblue;
 }
 

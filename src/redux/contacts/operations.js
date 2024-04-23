@@ -2,6 +2,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+
 const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
@@ -51,10 +53,10 @@ const deleteContact = createAsyncThunk(
 
 const editContact = createAsyncThunk(
   "contacts/editContact",
-  async ({ id, values }, thunkAPI) => {
+  async ({ name, number, id }, thunkAPI) => {
     try {
-      const res = await axios.patch(`/contacts/${id}`, values);
-      toast.success(`Contact "${values.name}" updated.`);
+      const res = await axios.patch(`/contacts/${id}`, { name, number });
+      toast.success(`Contact "${name}" updated.`);
       return res.data;
     } catch (e) {
       toast.error(

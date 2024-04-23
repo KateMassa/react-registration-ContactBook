@@ -11,20 +11,23 @@ import css from "./EditContact.module.css";
 const EditContact = ({ contact, onClose }) => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values) => {
-    dispatch(editContact({ ...values, id: contact.id }));
+  const handleSubmit = ({ name, number }) => {
+    dispatch(editContact({ ...{ name, number }, id: contact.id }));
     onClose();
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
-    phone: Yup.string().required("Phone is required"),
+    number: Yup.string().required("Phone is required"),
   });
 
   return (
     <div>
       <Formik
-        initialValues={{ ...contact }}
+        initialValues={{
+          name: contact.name,
+          number: contact.number,
+        }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
@@ -42,14 +45,14 @@ const EditContact = ({ contact, onClose }) => {
               <ErrorMessage name="name" component="div" />
             </div>
             <div className={css.editContactInput}>
-              <label htmlFor="phone">Phone:</label>
+              <label htmlFor="number">Phone:</label>
               <Field
-                id="phone"
-                name="phone"
+                id="number"
+                name="number"
                 as={TextField}
                 variant="outlined"
               />
-              <ErrorMessage name="phone" component="div" />
+              <ErrorMessage name="number" component="div" />
             </div>
             <div className={css.buttonContainer}>
               <Button
